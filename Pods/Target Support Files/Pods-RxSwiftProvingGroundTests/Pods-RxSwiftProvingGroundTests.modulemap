@@ -1,0 +1,6 @@
+framework module Pods_RxSwiftProvingGroundTests {
+  umbrella header "Pods-RxSwiftProvingGroundTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
