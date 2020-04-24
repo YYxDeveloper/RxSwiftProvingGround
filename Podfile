@@ -6,7 +6,7 @@ target 'RxSwiftProvingGround' do
   use_frameworks!
 
   # Pods for RxSwiftProvingGround
-	pod 'RxSwift'
+      pod 'RxSwift'
     	pod 'RxCocoa'
   target 'RxSwiftProvingGroundTests' do
     inherit! :search_paths

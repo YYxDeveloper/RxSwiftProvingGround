@@ -7,9 +7,12 @@
 //
 
 import UIKit
-
+import RxCocoa
+import RxSwift
 class ViewController: UIViewController {
 
+    @IBOutlet weak var redLabel: UILabel!
+    @IBOutlet weak var yellowBtn: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
