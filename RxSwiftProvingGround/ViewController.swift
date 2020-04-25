@@ -18,7 +18,7 @@ class ViewController: UIViewController {
     let numbers: Observable<Int> = Observable.create { observer -> Disposable in
         
         observer.onNext(0)
-        observer.onNext(1)
+        //        observer.onNext(1)
         observer.onCompleted()
         
         return Disposables.create()
@@ -38,6 +38,24 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        exampleAsSingle()
+        
+        
+    }
+    func exampleAsSingle() {
+
+        numbers.asSingle()
+            .subscribe(onSuccess: { json in
+                print("JSON结果: ", json)
+            }, onError: { error in
+                print("发生错误: ", error)
+            })
+            .disposed(by: disposeBag)
+        
+        numbers
+        .asSingle()
+        .subscribe({ print($0) })
+        .disposed(by: disposeBag)
         
         
     }
