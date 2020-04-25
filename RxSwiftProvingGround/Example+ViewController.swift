@@ -90,4 +90,14 @@ extension ViewController{
         singleEmissionStream.subscribe({print($0)}).disposed(by: disposeBag)
         
     }
+    func exampleSchedule() {
+        let rxData: Observable<[Int]> =  Observable.just([1,2,3])
+        rxData
+            .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .userInitiated))
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { [weak self] data in
+                self?.redLabel.text = String(data[0])
+            })
+            .disposed(by: disposeBag)
+    }
 }

@@ -42,8 +42,9 @@ class ViewController: UIViewController {
 //        exampleTheObserver()
 //        exampleAsSingle()
 //        exampleAsyncSubject()
-//        exampleJustAndFromArray()
-        exampleBehaviorSubject()
+//        exampleRXConvertArray()
+//        exampleBehaviorSubject()
+        exampleSchedule()
         
     }
     
