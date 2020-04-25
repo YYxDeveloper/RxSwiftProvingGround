@@ -38,37 +38,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+//        exampleObservableBindUI()
+//        exampleTheObserver()
         exampleAsSingle()
         
         
-    }
-    func exampleAsSingle() {
-
-        numbers.asSingle()
-            .subscribe(onSuccess: { json in
-                print("JSON结果: ", json)
-            }, onError: { error in
-                print("发生错误: ", error)
-            })
-            .disposed(by: disposeBag)
-        
-        numbers
-        .asSingle()
-        .subscribe({ print($0) })
-        .disposed(by: disposeBag)
-        
-        
-    }
-    func exampleTheObserver() {
-        numbers
-            .subscribe(theObserver)
-            .disposed(by: disposeBag)
-    }
-    func exampleObservableBindUI()  {
-        timer.map{ String(format: "%0.2d:%0.2d.%0.1d",
-                          arguments: [($0 / 600) % 600, ($0 % 600 ) / 10, $0 % 10]) }
-            .bind(to: redLabel.rx.text)
-            .disposed(by: disposeBag)
     }
     
 }
