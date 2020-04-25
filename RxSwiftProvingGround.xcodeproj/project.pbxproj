@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -17,6 +17,7 @@
 		477BF3632451F0E6004AFE4E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 477BF3612451F0E6004AFE4E /* LaunchScreen.storyboard */; };
 		477BF36E2451F0E6004AFE4E /* RxSwiftProvingGroundTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477BF36D2451F0E6004AFE4E /* RxSwiftProvingGroundTests.swift */; };
 		477BF3792451F0E6004AFE4E /* RxSwiftProvingGroundUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477BF3782451F0E6004AFE4E /* RxSwiftProvingGroundUITests.swift */; };
+		4792A8BF24540B1F00927AA6 /* Reactive+UIExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4792A8BE24540B1F00927AA6 /* Reactive+UIExtension.swift */; };
 		5EAB32FF8B186B382E83F3CB /* Pods_RxSwiftProvingGroundTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E39148B1FB1DC8E453E7CABF /* Pods_RxSwiftProvingGroundTests.framework */; };
 		B19CE3B4DC6B7AE48039C2E6 /* Pods_RxSwiftProvingGround_RxSwiftProvingGroundUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20099E821576A9424B3615E6 /* Pods_RxSwiftProvingGround_RxSwiftProvingGroundUITests.framework */; };
 /* End PBXBuildFile section */
@@ -58,6 +59,7 @@
 		477BF3742451F0E6004AFE4E /* RxSwiftProvingGroundUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RxSwiftProvingGroundUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		477BF3782451F0E6004AFE4E /* RxSwiftProvingGroundUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxSwiftProvingGroundUITests.swift; sourceTree = "<group>"; };
 		477BF37A2451F0E6004AFE4E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4792A8BE24540B1F00927AA6 /* Reactive+UIExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reactive+UIExtension.swift"; sourceTree = "<group>"; };
 		768A1BC142524E4B21E3C0C4 /* Pods-RxSwiftProvingGround.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxSwiftProvingGround.release.xcconfig"; path = "Target Support Files/Pods-RxSwiftProvingGround/Pods-RxSwiftProvingGround.release.xcconfig"; sourceTree = "<group>"; };
 		8688530654C5C5E966EAD88E /* Pods_RxSwiftProvingGround.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxSwiftProvingGround.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADD954C3F28C1D497C1C0900 /* Pods-RxSwiftProvingGround.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxSwiftProvingGround.debug.xcconfig"; path = "Target Support Files/Pods-RxSwiftProvingGround/Pods-RxSwiftProvingGround.debug.xcconfig"; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 		477BF3522451F0E3004AFE4E /* RxSwiftProvingGround */ = {
 			isa = PBXGroup;
 			children = (
+				4792A8BC24540ABB00927AA6 /* YYxRXSWIFT */,
 				477BF3532451F0E3004AFE4E /* AppDelegate.swift */,
 				477BF3552451F0E3004AFE4E /* SceneDelegate.swift */,
 				477BF3572451F0E3004AFE4E /* ViewController.swift */,
@@ -148,6 +151,22 @@
 			path = RxSwiftProvingGroundUITests;
 			sourceTree = "<group>";
 		};
+		4792A8BC24540ABB00927AA6 /* YYxRXSWIFT */ = {
+			isa = PBXGroup;
+			children = (
+				4792A8BD24540ADE00927AA6 /* Reactive+UIExtension */,
+			);
+			path = YYxRXSWIFT;
+			sourceTree = "<group>";
+		};
+		4792A8BD24540ADE00927AA6 /* Reactive+UIExtension */ = {
+			isa = PBXGroup;
+			children = (
+				4792A8BE24540B1F00927AA6 /* Reactive+UIExtension.swift */,
+			);
+			path = "Reactive+UIExtension";
+			sourceTree = "<group>";
+		};
 		A80497CE894802BF3C342925 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -168,7 +187,6 @@
 				4374E8F2F58C18E3F3F0889B /* Pods-RxSwiftProvingGroundTests.debug.xcconfig */,
 				3F2AA14E6DDC414E3C5B269F /* Pods-RxSwiftProvingGroundTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -415,6 +433,7 @@
 				477BF3582451F0E3004AFE4E /* ViewController.swift in Sources */,
 				477BF3542451F0E3004AFE4E /* AppDelegate.swift in Sources */,
 				477BF3562451F0E3004AFE4E /* SceneDelegate.swift in Sources */,
+				4792A8BF24540B1F00927AA6 /* Reactive+UIExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
