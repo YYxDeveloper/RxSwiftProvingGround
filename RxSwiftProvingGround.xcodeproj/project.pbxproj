@@ -19,6 +19,7 @@
 		477BF3792451F0E6004AFE4E /* RxSwiftProvingGroundUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477BF3782451F0E6004AFE4E /* RxSwiftProvingGroundUITests.swift */; };
 		4792A8BF24540B1F00927AA6 /* Reactive+UIExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4792A8BE24540B1F00927AA6 /* Reactive+UIExtension.swift */; };
 		4792A8C124541E8700927AA6 /* Example+ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4792A8C024541E8700927AA6 /* Example+ViewController.swift */; };
+		4792A8C3245494B400927AA6 /* CollectionType+ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4792A8C2245494B400927AA6 /* CollectionType+ViewController.swift */; };
 		5EAB32FF8B186B382E83F3CB /* Pods_RxSwiftProvingGroundTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E39148B1FB1DC8E453E7CABF /* Pods_RxSwiftProvingGroundTests.framework */; };
 		B19CE3B4DC6B7AE48039C2E6 /* Pods_RxSwiftProvingGround_RxSwiftProvingGroundUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20099E821576A9424B3615E6 /* Pods_RxSwiftProvingGround_RxSwiftProvingGroundUITests.framework */; };
 /* End PBXBuildFile section */
@@ -62,6 +63,7 @@
 		477BF37A2451F0E6004AFE4E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4792A8BE24540B1F00927AA6 /* Reactive+UIExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reactive+UIExtension.swift"; sourceTree = "<group>"; };
 		4792A8C024541E8700927AA6 /* Example+ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Example+ViewController.swift"; sourceTree = "<group>"; };
+		4792A8C2245494B400927AA6 /* CollectionType+ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CollectionType+ViewController.swift"; sourceTree = "<group>"; };
 		768A1BC142524E4B21E3C0C4 /* Pods-RxSwiftProvingGround.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxSwiftProvingGround.release.xcconfig"; path = "Target Support Files/Pods-RxSwiftProvingGround/Pods-RxSwiftProvingGround.release.xcconfig"; sourceTree = "<group>"; };
 		8688530654C5C5E966EAD88E /* Pods_RxSwiftProvingGround.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxSwiftProvingGround.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADD954C3F28C1D497C1C0900 /* Pods-RxSwiftProvingGround.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxSwiftProvingGround.debug.xcconfig"; path = "Target Support Files/Pods-RxSwiftProvingGround/Pods-RxSwiftProvingGround.debug.xcconfig"; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 				477BF3532451F0E3004AFE4E /* AppDelegate.swift */,
 				477BF3552451F0E3004AFE4E /* SceneDelegate.swift */,
 				477BF3572451F0E3004AFE4E /* ViewController.swift */,
+				4792A8C2245494B400927AA6 /* CollectionType+ViewController.swift */,
 				4792A8C024541E8700927AA6 /* Example+ViewController.swift */,
 				477BF3592451F0E3004AFE4E /* Main.storyboard */,
 				477BF35F2451F0E6004AFE4E /* Assets.xcassets */,
@@ -433,6 +436,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				477BF35E2451F0E3004AFE4E /* RxSwiftProvingGround.xcdatamodeld in Sources */,
+				4792A8C3245494B400927AA6 /* CollectionType+ViewController.swift in Sources */,
 				477BF3582451F0E3004AFE4E /* ViewController.swift in Sources */,
 				477BF3542451F0E3004AFE4E /* AppDelegate.swift in Sources */,
 				4792A8C124541E8700927AA6 /* Example+ViewController.swift in Sources */,

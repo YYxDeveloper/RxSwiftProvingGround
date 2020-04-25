@@ -40,8 +40,10 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
 //        exampleObservableBindUI()
 //        exampleTheObserver()
-        exampleAsSingle()
-        
+//        exampleAsSingle()
+//        exampleAsyncSubject()
+//        exampleJustAndFromArray()
+        exampleBehaviorSubject()
         
     }
     
