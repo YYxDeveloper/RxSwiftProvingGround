@@ -11,6 +11,7 @@ import RxCocoa
 import RxSwift
 class ViewController: UIViewController {
     
+    @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var redLabel: UILabel!
     @IBOutlet weak var yellowBtn: UIButton!
     var disposeBag = DisposeBag()
@@ -44,7 +45,10 @@ class ViewController: UIViewController {
 //        exampleAsyncSubject()
 //        exampleRXConvertArray()
 //        exampleBehaviorSubject()
-        exampleSchedule()
+//        example_BehaviorSubject_appendElement()
+//        example_BehaviorRelay_appendElement()
+        example_BehaviorRelay_convertBackArray()
+//        exampleSchedule()
         
     }
     

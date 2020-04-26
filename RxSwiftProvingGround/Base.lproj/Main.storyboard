@@ -35,17 +35,31 @@
                                     <constraint firstAttribute="height" constant="50" id="871-xh-mIb"/>
                                 </constraints>
                             </stackView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lyv-gZ-LnP">
+                                <rect key="frame" x="5" y="55" width="365" height="45"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="Ui0-YH-PUQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="3gF-vm-alW" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="EHi-og-PAc"/>
+                            <constraint firstItem="Lyv-gZ-LnP" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="SUM-Ut-zbj"/>
+                            <constraint firstItem="Lyv-gZ-LnP" firstAttribute="top" secondItem="3gF-vm-alW" secondAttribute="bottom" constant="5" id="ZSf-Ff-dZO"/>
                             <constraint firstItem="3gF-vm-alW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="aEj-Wa-3mF"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3gF-vm-alW" secondAttribute="trailing" id="fc2-M0-9ik"/>
+                            <constraint firstItem="Lyv-gZ-LnP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="5" id="iNQ-5P-0la"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Lyv-gZ-LnP" secondAttribute="trailing" constant="5" id="rmD-im-hCp"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="redLabel" destination="qTt-bo-4on" id="Lj7-uM-75T"/>
+                        <outlet property="textField" destination="Lyv-gZ-LnP" id="Uos-F0-4qs"/>
                         <outlet property="yellowBtn" destination="PPW-XJ-gYP" id="m8I-ZV-Rr1"/>
                     </connections>
                 </viewController>

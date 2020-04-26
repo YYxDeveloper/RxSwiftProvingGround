@@ -99,5 +99,57 @@ extension ViewController{
                 self?.redLabel.text = String(data[0])
             })
             .disposed(by: disposeBag)
+        
     }
+    func example_BehaviorSubject_appendElement()  {
+        //Subject 既是 Observer 也是 Observable 。它可以订阅一个或多个 Observable，当收到消息后进行处理，也可以通过Event将数据发送给订阅者。
+        //四者区别在于：当一个新的订阅者订阅它的时候，能否收到Subject以前发出过的就的Event，如果可以的会，又能收到多少个
+        let subject = BehaviorSubject(value: [10, 20])
+        subject.asObserver().subscribe(onNext: { value in
+            print(value)
+        }).disposed(by: disposeBag)
+        do {
+            try subject.onNext(subject.value() + [40]) // concatenating older value with new
+        } catch {
+            print(error)
+        }
+        
+    }
+    func example_BehaviorRelay_appendElement(){
+        let array = BehaviorRelay(value: [1, 2, 3])
+
+        array.subscribe(onNext: { value in
+            print(value)
+        }).disposed(by: disposeBag)
+
+
+        // for changing the value, simply get current value and append new value to it
+        array.accept(array.value + [4])
+    }
+    func example_BehaviorRelay_convertBackArray() {
+        
+//        https://stackoverflow.com/questions/49244270/rxswift-how-to-append-to-behaviorsubject?rq=1
+            let subject = BehaviorRelay(value: ["A"])
+            subject.asObservable().subscribe(onNext: { element in
+                print("第1次订阅：", element)
+            }, onCompleted: {
+                print("第1次订阅：completed")
+            }).disposed(by: disposeBag)
+            
+        subject.accept( subject.value + ["B"])
+            subject.asObservable().subscribe(onNext: { element in
+                print("第2次订阅：", element)
+            }, onCompleted: {
+                print("第2次订阅：completed")
+            }).disposed(by: disposeBag)
+            
+        subject.accept( subject.value+["C"])
+        
+        let arr = subject.value
+        print("orignal array ::\(arr)")
+    }
+    func exampleTextfieldBindLabel() {
+        
+    }
+    
 }
