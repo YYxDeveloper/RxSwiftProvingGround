@@ -47,9 +47,10 @@ class ViewController: UIViewController {
 //        exampleBehaviorSubject()
 //        example_BehaviorSubject_appendElement()
 //        example_BehaviorRelay_appendElement()
-        example_BehaviorRelay_convertBackArray()
+//        example_BehaviorRelay_convertBackArray()
 //        exampleSchedule()
-        
+//        exampleTextfieldBindLabel()
+        exampleAsDrive()
     }
     
 }
