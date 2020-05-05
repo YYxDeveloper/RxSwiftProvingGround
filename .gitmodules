@@ -1,0 +1,3 @@
+[submodule "SubModule_YYx"]
+	path = SubModule_YYx
+	url = https://github.com/YYxDeveloper/YYx.git
