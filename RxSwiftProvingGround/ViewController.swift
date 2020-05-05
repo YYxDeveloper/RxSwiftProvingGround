@@ -11,6 +11,7 @@ import RxCocoa
 import RxSwift
 class ViewController: UIViewController {
     
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var redLabel: UILabel!
     @IBOutlet weak var yellowBtn: UIButton!
@@ -50,7 +51,8 @@ class ViewController: UIViewController {
 //        example_BehaviorRelay_convertBackArray()
 //        exampleSchedule()
 //        exampleTextfieldBindLabel()
-        exampleAsDrive()
+//        exampleAsDrive()
+        exampleDistinctUntilChanged()
     }
     
 }

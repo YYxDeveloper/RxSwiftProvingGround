@@ -10,6 +10,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 import UIKit
+
 extension ViewController{
     func exampleBehaviorSubject() {
         let disposeBag = DisposeBag()
@@ -32,6 +33,15 @@ extension ViewController{
         subject.subscribe { event in
             print("第2次订阅：", event)
         }.disposed(by: disposeBag)
+    }
+    //如果后一个元素和前一个元素不相同，那么这个元素才会被发出来
+    func exampleDistinctUntilChanged() {
+        Observable.of("🐱", "🐷", "🐱", "🐱", "🐱", "🐵", "🐱")
+        .distinctUntilChanged()
+        .subscribe(onNext: { print($0) })
+        .disposed(by: disposeBag)
+
+        
     }
     func exampleAsyncSubject() {
         let subject = AsyncSubject<String>()

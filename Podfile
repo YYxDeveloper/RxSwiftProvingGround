@@ -8,6 +8,8 @@ target 'RxSwiftProvingGround' do
   # Pods for RxSwiftProvingGround
       pod 'RxSwift'
     	pod 'RxCocoa'
+      pod 'RxDataSources', '~> 4.0'
+
   target 'RxSwiftProvingGroundTests' do
     inherit! :search_paths
     # Pods for testing

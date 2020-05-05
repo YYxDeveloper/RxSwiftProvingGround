@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -44,21 +44,29 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="507-8e-QBL">
+                                <rect key="frame" x="0.0" y="100" width="375" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="507-8e-QBL" firstAttribute="top" secondItem="Lyv-gZ-LnP" secondAttribute="bottom" id="5Ku-tz-4N0"/>
                             <constraint firstItem="3gF-vm-alW" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="EHi-og-PAc"/>
                             <constraint firstItem="Lyv-gZ-LnP" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="SUM-Ut-zbj"/>
+                            <constraint firstItem="507-8e-QBL" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="VCH-M0-jOM"/>
                             <constraint firstItem="Lyv-gZ-LnP" firstAttribute="top" secondItem="3gF-vm-alW" secondAttribute="bottom" constant="5" id="ZSf-Ff-dZO"/>
                             <constraint firstItem="3gF-vm-alW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="aEj-Wa-3mF"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3gF-vm-alW" secondAttribute="trailing" id="fc2-M0-9ik"/>
                             <constraint firstItem="Lyv-gZ-LnP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="5" id="iNQ-5P-0la"/>
+                            <constraint firstItem="507-8e-QBL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="l2a-KO-5ec"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Lyv-gZ-LnP" secondAttribute="trailing" constant="5" id="rmD-im-hCp"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="redLabel" destination="qTt-bo-4on" id="Lj7-uM-75T"/>
+                        <outlet property="searchBar" destination="507-8e-QBL" id="Hfo-EQ-SR4"/>
                         <outlet property="textField" destination="Lyv-gZ-LnP" id="Uos-F0-4qs"/>
                         <outlet property="yellowBtn" destination="PPW-XJ-gYP" id="m8I-ZV-Rr1"/>
                     </connections>
