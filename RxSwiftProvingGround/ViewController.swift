@@ -16,7 +16,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var redLabel: UILabel!
     @IBOutlet weak var yellowBtn: UIButton!
     var disposeBag = DisposeBag()
-    let timer = Observable<Int>.interval(0.1, scheduler: MainScheduler.instance)
+//    let timer = Observable<Int>.interval(0.1, scheduler: MainScheduler.instance)
+    let timer = Observable<Int>.interval(DispatchTimeInterval.seconds(1), scheduler: MainScheduler())
+
     let numbers: Observable<Int> = Observable.create { observer -> Disposable in
         
         observer.onNext(0)
