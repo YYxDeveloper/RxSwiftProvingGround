@@ -6,8 +6,8 @@ target 'RxSwiftProvingGround' do
   use_frameworks!
 
   # Pods for RxSwiftProvingGround
-      pod 'RxSwift'
-    	pod 'RxCocoa'
+      pod 'RxSwift','~> 5'
+    	pod 'RxCocoa','~> 5'
       pod 'RxDataSources', '~> 4.0'
 
   target 'RxSwiftProvingGroundTests' do
