@@ -11,6 +11,7 @@ import RxCocoa
 import RxSwift
 class ViewController: UIViewController {
     
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var redLabel: UILabel!
@@ -54,7 +55,8 @@ class ViewController: UIViewController {
 //        exampleSchedule()
 //        exampleTextfieldBindLabel()
 //        exampleAsDrive()
-        exampleDistinctUntilChanged()
+//        exampleDistinctUntilChanged()
+        exampleRxTableView()
     }
     
 }

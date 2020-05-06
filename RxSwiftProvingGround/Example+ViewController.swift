@@ -10,6 +10,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 import UIKit
+import RxDataSources
 
 extension ViewController{
     func exampleBehaviorSubject() {
@@ -186,6 +187,9 @@ extension ViewController{
             .drive(yellowBtn.rx.isEnabled)
             .disposed(by: disposeBag)
         
+    }
+    func exampleRxTableView() {
+       
     }
     
 }
