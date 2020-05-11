@@ -191,5 +191,21 @@ extension ViewController{
     func exampleRxTableView() {
        
     }
-    
+    func examplePublishSubject() {
+        let subject = PublishSubject<String>()
+
+        subject
+          .subscribe { print("Subscription: 1 Event:", $0) }
+          .disposed(by: disposeBag)
+
+        subject.onNext("🐶")
+        subject.onNext("🐱")
+
+        subject
+          .subscribe { print("Subscription: 2 Event:", $0) }
+          .disposed(by: disposeBag)
+
+        subject.onNext("🅰️")
+        subject.onNext("🅱️")
+    }
 }

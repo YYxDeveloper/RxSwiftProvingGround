@@ -56,7 +56,8 @@ class ViewController: UIViewController {
 //        exampleTextfieldBindLabel()
 //        exampleAsDrive()
 //        exampleDistinctUntilChanged()
-        exampleRxTableView()
+//        exampleRxTableView()
+        examplePublishSubject()
     }
     
 }
