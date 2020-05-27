@@ -16,6 +16,7 @@ extension ViewController{
     func exampleBehaviorSubject() {
         let disposeBag = DisposeBag()
         
+        
         //创建一个BehaviorSubject
         let subject = BehaviorSubject(value: "111")
         

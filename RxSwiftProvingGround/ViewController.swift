@@ -11,6 +11,7 @@ import RxCocoa
 import RxSwift
 class ViewController: UIViewController {
     
+    @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var textField: UITextField!
@@ -28,6 +29,7 @@ class ViewController: UIViewController {
         
         return Disposables.create()
     }
+    let sliderNumber:BehaviorRelay<Float> = BehaviorRelay(value: 0.0)
     
     let theObserver: AnyObserver<Int> = AnyObserver { (event) in
         switch event {
@@ -40,8 +42,15 @@ class ViewController: UIViewController {
         }
     }
     
+    func mutualBinding() {
+        sliderNumber.subscribe({data in
+            print(data)
+            }).disposed(by: disposeBag)
+        _=slider.rx.value <-> self.sliderNumber
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
+        mutualBinding()
         // Do any additional setup after loading the view.
 //        exampleObservableBindUI()
 //        exampleTheObserver()
@@ -51,13 +60,13 @@ class ViewController: UIViewController {
 //        exampleBehaviorSubject()
 //        example_BehaviorSubject_appendElement()
 //        example_BehaviorRelay_appendElement()
-//        example_BehaviorRelay_convertBackArray()
+        example_BehaviorRelay_convertBackArray()
 //        exampleSchedule()
 //        exampleTextfieldBindLabel()
 //        exampleAsDrive()
 //        exampleDistinctUntilChanged()
 //        exampleRxTableView()
-        examplePublishSubject()
+//        examplePublishSubject()
     }
     
 }

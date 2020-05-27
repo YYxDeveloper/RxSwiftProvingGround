@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ggO-8t-CDf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -55,6 +55,12 @@
                                     <constraint firstAttribute="height" constant="100" id="9aw-14-zsA"/>
                                 </constraints>
                             </tableView>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="ddY-DT-PkE">
+                                <rect key="frame" x="-2" y="256" width="379" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="m1B-mZ-eTk"/>
+                                </constraints>
+                            </slider>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -62,21 +68,25 @@
                             <constraint firstItem="I3i-a8-I6S" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="DJu-tr-6yF"/>
                             <constraint firstItem="3gF-vm-alW" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="EHi-og-PAc"/>
                             <constraint firstItem="Lyv-gZ-LnP" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="SUM-Ut-zbj"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ddY-DT-PkE" secondAttribute="trailing" id="SzF-gT-gke"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="I3i-a8-I6S" secondAttribute="trailing" id="T7T-dQ-c4N"/>
                             <constraint firstItem="507-8e-QBL" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="VCH-M0-jOM"/>
                             <constraint firstItem="Lyv-gZ-LnP" firstAttribute="top" secondItem="3gF-vm-alW" secondAttribute="bottom" constant="5" id="ZSf-Ff-dZO"/>
                             <constraint firstItem="3gF-vm-alW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="aEj-Wa-3mF"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3gF-vm-alW" secondAttribute="trailing" id="fc2-M0-9ik"/>
+                            <constraint firstItem="ddY-DT-PkE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="hsS-uK-cEA"/>
                             <constraint firstItem="Lyv-gZ-LnP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="5" id="iNQ-5P-0la"/>
                             <constraint firstItem="507-8e-QBL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="l2a-KO-5ec"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Lyv-gZ-LnP" secondAttribute="trailing" constant="5" id="rmD-im-hCp"/>
                             <constraint firstItem="I3i-a8-I6S" firstAttribute="top" secondItem="507-8e-QBL" secondAttribute="bottom" id="sgA-UD-4XS"/>
+                            <constraint firstItem="ddY-DT-PkE" firstAttribute="top" secondItem="I3i-a8-I6S" secondAttribute="bottom" id="yng-Oj-ifh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="redLabel" destination="qTt-bo-4on" id="Lj7-uM-75T"/>
                         <outlet property="searchBar" destination="507-8e-QBL" id="Hfo-EQ-SR4"/>
+                        <outlet property="slider" destination="ddY-DT-PkE" id="7vh-p2-C6u"/>
                         <outlet property="tableView" destination="I3i-a8-I6S" id="Ned-N8-15g"/>
                         <outlet property="textField" destination="Lyv-gZ-LnP" id="Uos-F0-4qs"/>
                         <outlet property="yellowBtn" destination="PPW-XJ-gYP" id="m8I-ZV-Rr1"/>
@@ -104,7 +114,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="hDL-43-yc5" customClass="CountryCell" customModule="RxCollectionViewExample" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="hDL-43-yc5" customClass="CountryCell" customModule="RxSwiftProvingGround" customModuleProvider="target">
                                         <rect key="frame" x="42.5" y="76" width="290" height="113"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -130,7 +140,7 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
-                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Section" id="OaX-Sw-Luc" customClass="CountrySectionView" customModule="RxCollectionViewExample" customModuleProvider="target">
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Section" id="OaX-Sw-Luc" customClass="CountrySectionView" customModule="RxSwiftProvingGround" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="76"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
