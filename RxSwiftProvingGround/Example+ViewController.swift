@@ -49,13 +49,15 @@ extension ViewController{
         let subject = AsyncSubject<String>()
         
         subject
-            .subscribe { print("Subscription: 1 Event:", $0) }
+            .subscribe { print("Subscription: 1 Event:", $0.element) }
             .disposed(by: disposeBag)
         
-        subject.onNext("🐶")
-        subject.onNext("🐱")
-        subject.onNext("🐹")
+        subject.onNext("AA")
+        subject.onNext("VV")
+        subject.onNext("CC")
         subject.onCompleted()
+        subject.onNext("CC")
+
     }
     func exampleAsSingle() {
         
@@ -203,7 +205,7 @@ extension ViewController{
         subject.onNext("🐱")
 
         subject
-          .subscribe { print("Subscription: 2 Event:", $0) }
+            .subscribe { print("Subscription: 2 Event:", $0.element) }
           .disposed(by: disposeBag)
 
         subject.onNext("🅰️")

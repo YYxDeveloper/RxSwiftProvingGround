@@ -50,7 +50,7 @@ class ViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        mutualBinding()
+//        mutualBinding()
         // Do any additional setup after loading the view.
 //        exampleObservableBindUI()
 //        exampleTheObserver()
@@ -60,13 +60,13 @@ class ViewController: UIViewController {
 //        exampleBehaviorSubject()
 //        example_BehaviorSubject_appendElement()
 //        example_BehaviorRelay_appendElement()
-        example_BehaviorRelay_convertBackArray()
+//        example_BehaviorRelay_convertBackArray()
 //        exampleSchedule()
 //        exampleTextfieldBindLabel()
 //        exampleAsDrive()
 //        exampleDistinctUntilChanged()
 //        exampleRxTableView()
-//        examplePublishSubject()
+        examplePublishSubject()
     }
     
 }
