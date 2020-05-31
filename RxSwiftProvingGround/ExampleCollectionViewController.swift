@@ -16,13 +16,42 @@ class ExampleCollectionViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var collectionView: UICollectionView!
     let arr = [SectionItem(id: 0, title: "aa")]
     let sectionModels = BehaviorRelay<[SectionModel]>(value: [SectionModel(original: .end([SectionItem(id: 0, title: "aa")]), items: [SectionItem(id: 1, title: "gg")])])
+    var testArr = [1,2,3,4,5]
 
     override func viewDidLoad() {
         super.viewDidLoad()
         sectionModels.bind(to: collectionView.rx.items(dataSource: createDataSource())).disposed(by: disposeBag)
         collectionView.rx.setDelegate(self).disposed(by: disposeBag)
+        
+      exampleRxArrayAppend1Eelement()
+
     }
-    
+    func exampleRxArrayAppend1Eelement() {
+     
+        let br = BehaviorRelay(value: testArr)//it's copy so testArr doesn't change
+        br.subscribe({
+            print($0.element)
+        })
+        
+        
+        br.accept(br.value + [7])
+        
+        var arr1111 = br.value
+        if  arr1111.indices.contains(3){
+            arr1111[3] = 999
+            br.accept(arr1111)
+            testArr = br.value
+            print(testArr)
+        }else{
+            print(" index not exsit")
+        }
+
+        //        testArr.append(7)
+        //        print("aa::\(testArr)")
+        //
+        //        testArr.append(6)
+        //        print("bb::\(testArr)")
+    }
 
     @IBAction func click(_ sender: Any) {
 //        sectionModels.accept( [SectionModel(original: .end([SectionItem(id: 0, title: "tt"),SectionItem(id: 0, title: "tt")]), items: [SectionItem(id: 1, title: "dd")])])
