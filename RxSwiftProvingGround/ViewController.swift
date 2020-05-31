@@ -66,7 +66,7 @@ class ViewController: UIViewController {
 //        exampleAsDrive()
 //        exampleDistinctUntilChanged()
 //        exampleRxTableView()
-        examplePublishSubject()
+//        examplePublishSubject()
     }
     
 }

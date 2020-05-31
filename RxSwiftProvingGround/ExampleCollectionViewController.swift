@@ -11,23 +11,31 @@ import RxCocoa
 import RxSwift
 import RxDataSources
 class ExampleCollectionViewController: UIViewController, UIScrollViewDelegate {
+    @IBOutlet weak var theButton: UIButton!
     let disposeBag = DisposeBag()
-
+    var buttonOneIsSelected = BehaviorRelay(value: false)
+    
     @IBOutlet weak var collectionView: UICollectionView!
     let arr = [SectionItem(id: 0, title: "aa")]
     let sectionModels = BehaviorRelay<[SectionModel]>(value: [SectionModel(original: .end([SectionItem(id: 0, title: "aa")]), items: [SectionItem(id: 1, title: "gg")])])
     var testArr = [1,2,3,4,5]
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         sectionModels.bind(to: collectionView.rx.items(dataSource: createDataSource())).disposed(by: disposeBag)
         collectionView.rx.setDelegate(self).disposed(by: disposeBag)
         
-      exampleRxArrayAppend1Eelement()
-
+        //      exampleRxArrayAppend1Eelement()
+//        exampleButtonIsSelectedAsDriver()
+        //        buttonOneIsSelected.accept(true)
+        exampleBindIsSelected()
+    }
+    func exampleButtonIsSelectedAsDriver() {
+        buttonOneIsSelected.asDriver()
+            .drive(theButton.rx.isSelected)
     }
     func exampleRxArrayAppend1Eelement() {
-     
+        
         let br = BehaviorRelay(value: testArr)//it's copy so testArr doesn't change
         br.subscribe({
             print($0.element)
@@ -45,30 +53,50 @@ class ExampleCollectionViewController: UIViewController, UIScrollViewDelegate {
         }else{
             print(" index not exsit")
         }
-
+        
         //        testArr.append(7)
         //        print("aa::\(testArr)")
         //
         //        testArr.append(6)
         //        print("bb::\(testArr)")
     }
-
+    func exampleBindIsSelected()  {
+        theButton.rx.tap.asObservable().map { (_) -> Bool in
+            return !self.theButton.isSelected
+        }
+        .do(onNext: { (isSelected) in
+            if isSelected{
+                self.theButton.backgroundColor = .red
+            }else{
+                self.theButton.backgroundColor = .blue
+                
+            }
+            //           self.buttonTwoIsSelected.value = !isSelected
+            //           self.buttonThreeIsSelected.value = !isSelected
+        })
+            .bind(to: theButton.rx.isSelected)
+            .disposed(by: disposeBag)
+    }
     @IBAction func click(_ sender: Any) {
-//        sectionModels.accept( [SectionModel(original: .end([SectionItem(id: 0, title: "tt"),SectionItem(id: 0, title: "tt")]), items: [SectionItem(id: 1, title: "dd")])])
-//        [SectionItem(id: 1, title: "dd")]
-       
-        sectionModels.accept([SectionModel(original: .group(2, "ii",  [SectionItem(id: 1, title: "uuuq")]), items: [SectionItem(id: 1, title: "uuru"),SectionItem(id: 1, title: "uuru")])])
+        //        sectionModels.accept( [SectionModel(original: .end([SectionItem(id: 0, title: "tt"),SectionItem(id: 0, title: "tt")]), items: [SectionItem(id: 1, title: "dd")])])
+        //        [SectionItem(id: 1, title: "dd")]
+        
+        //        sectionModels.accept([SectionModel(original: .group(2, "ii",  [SectionItem(id: 1, title: "uuuq")]), items: [SectionItem(id: 1, title: "uuru"),SectionItem(id: 1, title: "uuru")])])
+        btnCahnge()
+    }
+    func btnCahnge() {
+        buttonOneIsSelected.accept(false)
     }
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
 extension ExampleCollectionViewController {
     func createDataSource() -> RxCollectionViewSectionedReloadDataSource<ExampleCollectionViewController.SectionModel> {
@@ -78,25 +106,25 @@ extension ExampleCollectionViewController {
             }, configureSupplementaryView: { [weak self] (_, collectionView, kind, indexPath) in
                 guard let `self` = self else { fatalError() }
                 
-//                if kind == UICollectionView.elementKindSectionHeader {
-//                    return self.createHeaderView(collectionView: collectionView, indexPath: indexPath)
-//                } else if kind == UICollectionView.elementKindSectionFooter {
-//                    return self.createFooterView(collectionView: collectionView, indexPath: indexPath)
-//                } else {
-//                    fatalError()
-//                }
+                //                if kind == UICollectionView.elementKindSectionHeader {
+                //                    return self.createHeaderView(collectionView: collectionView, indexPath: indexPath)
+                //                } else if kind == UICollectionView.elementKindSectionFooter {
+                //                    return self.createFooterView(collectionView: collectionView, indexPath: indexPath)
+                //                } else {
+                //                    fatalError()
+                //                }
                 return UICollectionReusableView()
         })
     }
     
-     func createCell(collectionView: UICollectionView, indexPath: IndexPath, item: ExampleCollectionViewController.SectionItem) -> UICollectionViewCell {
-          guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RxCollectionViewCell", for: indexPath) as? RxCollectionViewCell else {
-              return collectionView.dequeueReusableCell(withReuseIdentifier: "RxCollectionViewCell", for: indexPath)
-          }
+    func createCell(collectionView: UICollectionView, indexPath: IndexPath, item: ExampleCollectionViewController.SectionItem) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RxCollectionViewCell", for: indexPath) as? RxCollectionViewCell else {
+            return collectionView.dequeueReusableCell(withReuseIdentifier: "RxCollectionViewCell", for: indexPath)
+        }
         print(item.title)
-          cell.label.text = item.title
-          return cell
-      }
+        cell.label.text = item.title
+        return cell
+    }
     
 }
 extension ExampleCollectionViewController {
