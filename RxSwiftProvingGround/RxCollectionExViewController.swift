@@ -56,9 +56,13 @@ extension RxCollectionExViewController {
                     return cell
 
             },
-                { (ds ,cv, kind, ip) in
-                    let section = cv.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "Section", for: ip) as! CountrySectionView
-                    section.countrySectionLabel!.text = "\(ds[ip.section].header)"
+                { (dataSource ,collectionView, kind, indexPath) in
+                    //  kind::                  UICollectionReusableView同UICollectionViewCell一样，需要注册,使用UICollectionElementKindSectionFooter / UICollectionElementKindSectionHeader来告知其是headerView还是footerView：
+                    //                    链接：https://www.jianshu.com/p/a42ddc09614c
+                
+                    
+                    let section = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "Section", for: indexPath) as! CountrySectionView
+                    section.countrySectionLabel!.text = "\(dataSource[indexPath.section].header)"
                     return section
             }
             )
