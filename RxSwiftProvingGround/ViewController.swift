@@ -11,6 +11,7 @@ import RxCocoa
 import RxSwift
 class ViewController: UIViewController {
     
+    @IBOutlet weak var orangeLabel: UILabel!
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -63,7 +64,7 @@ class ViewController: UIViewController {
 //        example_BehaviorRelay_convertBackArray()
 //        exampleSchedule()
 //        exampleTextfieldBindLabel()
-//        exampleAsDrive()
+        exampleAsDrive()
 //        exampleDistinctUntilChanged()
 //        exampleRxTableView()
 //        examplePublishSubject()

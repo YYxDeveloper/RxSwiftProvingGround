@@ -190,6 +190,10 @@ extension ViewController{
             .drive(yellowBtn.rx.isEnabled)
             .disposed(by: disposeBag)
         
+        input.map{ $0 + "最後都有gg" }
+                   .drive(orangeLabel.rx.text)
+                   .disposed(by: disposeBag)
+        
     }
     func exampleRxTableView() {
        
