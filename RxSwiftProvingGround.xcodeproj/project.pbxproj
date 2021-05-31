@@ -14,6 +14,7 @@
 		335E689A24811A940025F06B /* RxCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335E689924811A930025F06B /* RxCollectionViewCell.swift */; };
 		339FE28D246BC2EB0095F8A6 /* RxCollectionExViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339FE28C246BC2EB0095F8A6 /* RxCollectionExViewController.swift */; };
 		339FE28F246BC36A0095F8A6 /* CountrySection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339FE28E246BC36A0095F8A6 /* CountrySection.swift */; };
+		47626BE22642328A00348B40 /* RxBook+ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47626BE12642328A00348B40 /* RxBook+ViewController.swift */; };
 		477BF3542451F0E3004AFE4E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477BF3532451F0E3004AFE4E /* AppDelegate.swift */; };
 		477BF3562451F0E3004AFE4E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477BF3552451F0E3004AFE4E /* SceneDelegate.swift */; };
 		477BF3582451F0E3004AFE4E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477BF3572451F0E3004AFE4E /* ViewController.swift */; };
@@ -57,6 +58,7 @@
 		339FE28E246BC36A0095F8A6 /* CountrySection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountrySection.swift; sourceTree = "<group>"; };
 		3F2AA14E6DDC414E3C5B269F /* Pods-RxSwiftProvingGroundTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxSwiftProvingGroundTests.release.xcconfig"; path = "Target Support Files/Pods-RxSwiftProvingGroundTests/Pods-RxSwiftProvingGroundTests.release.xcconfig"; sourceTree = "<group>"; };
 		4374E8F2F58C18E3F3F0889B /* Pods-RxSwiftProvingGroundTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxSwiftProvingGroundTests.debug.xcconfig"; path = "Target Support Files/Pods-RxSwiftProvingGroundTests/Pods-RxSwiftProvingGroundTests.debug.xcconfig"; sourceTree = "<group>"; };
+		47626BE12642328A00348B40 /* RxBook+ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RxBook+ViewController.swift"; sourceTree = "<group>"; };
 		477BF3502451F0E3004AFE4E /* RxSwiftProvingGround.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxSwiftProvingGround.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		477BF3532451F0E3004AFE4E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		477BF3552451F0E3004AFE4E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 				477BF3552451F0E3004AFE4E /* SceneDelegate.swift */,
 				477BF3572451F0E3004AFE4E /* ViewController.swift */,
 				4792A8C024541E8700927AA6 /* Example+ViewController.swift */,
+				47626BE12642328A00348B40 /* RxBook+ViewController.swift */,
 				477BF3592451F0E3004AFE4E /* Main.storyboard */,
 				477BF35F2451F0E6004AFE4E /* Assets.xcassets */,
 				477BF3612451F0E6004AFE4E /* LaunchScreen.storyboard */,
@@ -452,6 +455,7 @@
 			files = (
 				339FE28F246BC36A0095F8A6 /* CountrySection.swift in Sources */,
 				330BFF74247E1263001BC501 /* Operators+Extension.swift in Sources */,
+				47626BE22642328A00348B40 /* RxBook+ViewController.swift in Sources */,
 				339FE28D246BC2EB0095F8A6 /* RxCollectionExViewController.swift in Sources */,
 				477BF35E2451F0E3004AFE4E /* RxSwiftProvingGround.xcdatamodeld in Sources */,
 				477BF3582451F0E3004AFE4E /* ViewController.swift in Sources */,

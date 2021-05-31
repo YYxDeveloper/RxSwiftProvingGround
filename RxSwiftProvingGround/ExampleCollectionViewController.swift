@@ -76,6 +76,26 @@ class ExampleCollectionViewController: UIViewController, UIScrollViewDelegate {
         })
             .bind(to: theButton.rx.isSelected)
             .disposed(by: disposeBag)
+        
+        //改變自己的版本
+//        theButton.rx.tap.asObservable().map { (_) -> Bool in
+//            return !theButton.isSelected
+//        }
+//        .do(onNext: { (isSelected) in
+//            print(isSelected)
+//            if isSelected{
+//                theButton.backgroundColor = .red
+//            }else{
+//                theButton.backgroundColor = .blue
+//
+//            }
+//            //           self.buttonTwoIsSelected.value = !isSelected
+//            //           self.buttonThreeIsSelected.value = !isSelected
+//        })
+//            .bind(to: theButton.rx.isSelected)
+//            .disposed(by: disposeBag)
+        
+        
     }
     @IBAction func click(_ sender: Any) {
         //        sectionModels.accept( [SectionModel(original: .end([SectionItem(id: 0, title: "tt"),SectionItem(id: 0, title: "tt")]), items: [SectionItem(id: 1, title: "dd")])])

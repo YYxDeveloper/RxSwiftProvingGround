@@ -39,10 +39,10 @@ extension ViewController{
     //如果后一个元素和前一个元素不相同，那么这个元素才会被发出来
     func exampleDistinctUntilChanged() {
         Observable.of("🐱", "🐷", "🐱", "🐱", "🐱", "🐵", "🐱")
-        .distinctUntilChanged()
-        .subscribe(onNext: { print($0) })
-        .disposed(by: disposeBag)
-
+            .distinctUntilChanged()
+            .subscribe(onNext: { print($0) })
+            .disposed(by: disposeBag)
+        
         
     }
     func exampleAsyncSubject() {
@@ -57,7 +57,37 @@ extension ViewController{
         subject.onNext("CC")
         subject.onCompleted()
         subject.onNext("CC")
-
+        
+    }
+    func exampleSubscipeWithEvent(){
+        //        let output = viewModel?.transform(AuthLoginViewModel.Input(loginTrigger: loginTrigger))
+        //        output?.loginRequest.asObservable().subscribe({ event in
+        //            switch event {
+        //            case .next(let model):
+        //                print(model)
+        //            case .error(let error):
+        //                print(error)
+        //            default: break
+        //            }
+        //        }).disposed(by: disposeBag)
+    }
+    func exampleDriverSubscribe()     {
+        let subject = AsyncSubject<String>().asDriver(onErrorDriveWith: .empty())
+        //        subject
+        //            .subscribe { print("Subscription: 1 Event:", $0.element) }
+        //            .disposed(by: disposeBag)
+        //
+        //        subject.onNext("AA")
+        //        subject.onNext("VV")
+        //        subject.onNext("CC")
+        //        subject.onCompleted()
+        //        subject.onNext("CC")
+        subject.drive(onNext: { _ in
+            
+        }, onCompleted: nil, onDisposed: nil).disposed(by: disposeBag)
+        
+        subject.drive()
+        
     }
     func exampleAsSingle() {
         
@@ -132,12 +162,12 @@ extension ViewController{
     }
     func example_BehaviorRelay_appendElement(){
         let array = BehaviorRelay(value: [1, 2, 3])
-
+        
         array.subscribe(onNext: { value in
             print(value)
         }).disposed(by: disposeBag)
-
-
+        
+        
         // for changing the value, simply get current value and append new value to it
         array.accept(array.value + [4])
     }
@@ -191,28 +221,152 @@ extension ViewController{
             .disposed(by: disposeBag)
         
         input.map{ $0 + "最後都有gg" }
-                   .drive(orangeLabel.rx.text)
-                   .disposed(by: disposeBag)
+            .drive(orangeLabel.rx.text)
+            .disposed(by: disposeBag)
         
     }
     func exampleRxTableView() {
-       
+        
     }
     func examplePublishSubject() {
         let subject = PublishSubject<String>()
-
+        
         subject
-          .subscribe { print("Subscription: 1 Event:", $0) }
-          .disposed(by: disposeBag)
-
+            .subscribe { print("Subscription: 1 Event:", $0) }
+            .disposed(by: disposeBag)
+        
         subject.onNext("🐶")
         subject.onNext("🐱")
-
+        
         subject
             .subscribe { print("Subscription: 2 Event:", $0.element) }
-          .disposed(by: disposeBag)
-
+            .disposed(by: disposeBag)
+        
         subject.onNext("🅰️")
         subject.onNext("🅱️")
+    }
+    func exampleDoAllEvent(){
+        let subject = PublishSubject<Int>()
+
+        let ob = subject.do(onNext: {
+            print("====onNext\($0)")
+        },
+        afterNext: { _ in
+            print("===afterNext")
+        },
+        onError: { _ in
+            print("onError")
+        },
+        afterError: { _ in
+            print("afterError")
+        },
+        onCompleted: {
+            print("onCompleted")
+        },
+        afterCompleted: {
+            print("afterCompleted")
+        },
+        onSubscribe: {
+            print("onSubscribe")
+        },
+        onSubscribed: {
+            print("onSubscribed")
+        },
+        onDispose: {
+            print("onDispose")
+        }).subscribe({_ in
+            print("====")
+        }).disposed(by: disposeBag)
+        subject.subscribe({print($0)}).disposed(by: disposeBag)
+
+        subject.onNext(5)
+//        subject.onNext(2)
+//        ob.subscribe({print($0)}).disposed(by: disposeBag)
+        
+    }
+    func example_different_of_And_create(){
+        //差別在於一個會自動onCompleted另外一個要手動
+        Observable.of("1", "2").subscribe(onCompleted: {
+            print("cccompleted")
+        }).disposed(by: disposeBag)
+
+        Observable<String>.create { observer in
+                observer.onNext("1")
+                observer.onNext("2")
+            observer.onCompleted()
+                return Disposables.create()
+            }
+            .subscribe(onCompleted: {
+                print("aacompleted")
+            }).disposed(by: disposeBag)
+    }
+    func example_replay(){
+        let intSequence = Observable<Int>.interval(1, scheduler: MainScheduler.instance)
+            .replay(4)
+
+        _ = intSequence
+            .subscribe(onNext: { print("Subscription 1:, Event: \($0)") })
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            _ = intSequence.connect()
+        }
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
+          _ = intSequence
+              .subscribe(onNext: { print("Subscription 2:, Event: \($0)") })
+        }
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 8) {
+          _ = intSequence
+              .subscribe(onNext: { print("Subscription 3:, Event: \($0)") })
+        }
+    }
+    func example_buffer(){
+        let bufferTimeSpan: RxTimeInterval = RxTimeInterval.milliseconds(8000)
+        let bufferMaxCount = 2
+        let sourceObservable = PublishSubject<String>()
+       
+
+        sourceObservable .buffer(timeSpan: bufferTimeSpan, count: bufferMaxCount, scheduler: MainScheduler.instance)
+            .subscribe({ event in
+                
+            print(event.element!)
+        }).disposed(by: disposeBag)
+        
+        sourceObservable.onNext("a")
+        sourceObservable.onNext("b")
+        sourceObservable.onNext("c")
+        sourceObservable.onNext("d")
+        sourceObservable.onNext("e")
+        sourceObservable.onNext("f")
+        sourceObservable.onNext("g")
+       
+
+    }
+    func example_window(){
+        let subject = PublishSubject<String>()
+
+        subject
+            .window(timeSpan: 1, count: 3, scheduler: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] in
+                print("subscribe: \($0)")
+                $0.asObservable()
+                    .subscribe(onNext: { print($0) })
+                    .disposed(by: self!.disposeBag)
+            })
+            .disposed(by: disposeBag)
+
+        subject.onNext("a")
+        subject.onNext("b")
+        subject.onNext("c")
+
+        //運行結果：
+        //subscribe: RxSwift.AddRef<Swift.String>
+        //a
+        //b
+        //c
+        //subscribe: RxSwift.AddRef<Swift.String>
+        //subscribe: RxSwift.AddRef<Swift.String>
+        //...    }
     }
 }
