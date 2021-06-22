@@ -9,6 +9,7 @@
 import UIKit
 import RxCocoa
 import RxSwift
+import RxDataSources
 class ViewController: UIViewController {
     
     @IBOutlet weak var orangeLabel: UILabel!
@@ -62,6 +63,10 @@ class ViewController: UIViewController {
             print(num)
             
         }).disposed(by: disposeBag)
+        let action: Action<String, Bool> = Action(workFactory: { input in
+            return networkLibrary.checkEmailExists(input)
+        })
+
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -99,38 +104,12 @@ class ViewController: UIViewController {
 //        example_replay()
 //        example_buffer()
 //        example_window()
-        struct Zoo {
-            let animal: BehaviorSubject<String>
-        }
-        let zone1 = Zoo(animal: BehaviorSubject<String>(value: "Koala"))
-        let zone2 = Zoo(animal: BehaviorSubject<String>(value: "Lion"))
-
-        let subject = PublishSubject<Zoo>()
-
-        subject
-            .concatMap { $0.animal }
-            .subscribe(onNext: {
-                print($0)
-            })
-            .disposed(by: disposeBag)
-
-        subject.onNext(zone1)
-
-        subject.onNext(zone2)
-
-        
-            
-            
-        zone1.animal.onNext("Panda")
-        zone2.animal.onNext("Tiger")
-
-
-
-        zone2.animal.onNext("Cow")
-//        zone2.animal.onCompleted()
-//        zone1.animal.onCompleted()
-
-
+//        rxBook_delay()
+//        rxBook_delaySubscription()
+//        rxBook_interval()
+//        rxBook_Timer()
+        rxBook_timeout()
+      
     }
     override func viewWillAppear(_ animated: Bool) {
         

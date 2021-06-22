@@ -322,8 +322,8 @@ extension ViewController{
         }
     }
     func example_buffer(){
-        let bufferTimeSpan: RxTimeInterval = RxTimeInterval.milliseconds(8000)
-        let bufferMaxCount = 2
+        let bufferTimeSpan: RxTimeInterval = RxTimeInterval.milliseconds(10000)
+        let bufferMaxCount = 3
         let sourceObservable = PublishSubject<String>()
        
 
@@ -333,33 +333,43 @@ extension ViewController{
             print(event.element!)
         }).disposed(by: disposeBag)
         
+        print("start")
         sourceObservable.onNext("a")
         sourceObservable.onNext("b")
-        sourceObservable.onNext("c")
+        sourceObservable.onNext("b2")
+        sourceObservable.onNext("b3")
         sourceObservable.onNext("d")
         sourceObservable.onNext("e")
         sourceObservable.onNext("f")
         sourceObservable.onNext("g")
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+           print("timer")
+            sourceObservable.onNext("g2")
+
+        }
+//        sourceObservable.onNext("c")
+      
        
 
     }
     func example_window(){
         let subject = PublishSubject<String>()
 
-        subject
-            .window(timeSpan: 1, count: 3, scheduler: MainScheduler.instance)
+        let aa = subject
+            .window(timeSpan: 10, count: 2, scheduler: MainScheduler.instance)
             .subscribe(onNext: { [weak self] in
                 print("subscribe: \($0)")
                 $0.asObservable()
-                    .subscribe(onNext: { print($0) })
+                    .subscribe(onNext: { print("ggg::\($0)") })
                     .disposed(by: self!.disposeBag)
             })
-            .disposed(by: disposeBag)
+//            .disposed(by: disposeBag)
 
         subject.onNext("a")
         subject.onNext("b")
         subject.onNext("c")
-
+        
         //運行結果：
         //subscribe: RxSwift.AddRef<Swift.String>
         //a
@@ -369,4 +379,5 @@ extension ViewController{
         //subscribe: RxSwift.AddRef<Swift.String>
         //...    }
     }
+    
 }
